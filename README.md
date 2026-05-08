@@ -127,3 +127,4 @@ Future simulations may include:
 
 ```bash
 pip install numpy matplotlib
+pip installl numpy
