@@ -1,8 +1,8 @@
 # Stochastic Processes
 
-Basic simulations of stochastic processes in Python.
+Simulations of stochastic processes in Python.
 
-This repository contains simple numerical experiments with:
+This repository contains numerical experiments with:
 
 1. Brownian Motion
 2. Brownian Bridge
