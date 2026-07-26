@@ -151,5 +151,5 @@ Future simulations may include:
 ## Requirements
 
 ```bash
-pip install numpy matplotlib
-pip installl numpy
+pip install numpy matplotlib scipy
+```
