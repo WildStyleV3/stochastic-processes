@@ -4,10 +4,10 @@ Basic simulations of stochastic processes in Python.
 
 This repository contains simple numerical experiments with:
 
-1. Brownian Motion
-2. Brownian Bridge
-3. Geometric Brownian Motion
-4. Monte Carlo simulation of stochastic differential equations
+1. Brownian Motion and Brownian Bridge
+2. Geometric Brownian Motion (Euler-Maruyama vs. exact solution)
+3. Stochastic Logistic Growth
+4. Geometric Brownian Motion with time-varying, stress-dependent drift
 
 The goal is to connect theoretical stochastic processes with applied simulations in statistics, finance, biology and engineering.
 
@@ -85,6 +85,32 @@ When $\sigma=0$, the model reduces to the classical deterministic logistic growt
 When $\sigma>0$, the population fluctuates around the carrying capacity $K$, generating multiple possible trajectories.
 ---
 
+## 04. Geometric Brownian Motion with time-varying drift
+
+This extends the GBM idea from section 02 by making the drift $\mu_t$ a function of time, driven by a "stress" variable $S_t$ that switches to a higher level between $t=3$ and $t=7$:
+
+$$
+h(S_t) = 1 - e^{-\beta S_t}
+$$
+
+$$
+\mu_t = \alpha \, h(S_t) - \gamma
+$$
+
+$$
+dE_t = \mu_t E_t \, dt + \sigma_E E_t \, dW_t
+$$
+
+Because $\mu_t$ is deterministic given $S_t$, $\log E_t$ is still Gaussian with a time-dependent mean:
+
+$$
+M_t = \int_0^t \left(\mu_s - \tfrac{1}{2}\sigma_E^2\right) ds, \qquad \log E_t \sim N(M_t, \sigma_E^2 t)
+$$
+
+This is used to plot theoretical $\pm 2\sigma$ bands and the lognormal density of $E_T$ against the simulated paths, checking the Euler-Maruyama simulation against the closed-form distribution.
+
+---
+
 ## Monte Carlo interpretation
 
 Each simulated path is one possible future trajectory.
@@ -113,7 +139,6 @@ This does not predict the future directly. It generates possible outcomes under 
 
 Future simulations may include:
 
-- Stochastic logistic growth
 - Ornstein-Uhlenbeck processes
 - Mean-reverting models
 - Stochastic volatility
