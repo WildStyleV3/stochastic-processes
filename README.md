@@ -1,8 +1,8 @@
 # Stochastic Processes
 
-Basic simulations of stochastic processes in Python.
+Simulations of stochastic processes in Python.
 
-This repository contains simple numerical experiments with:
+This repository contains numerical experiments with:
 
 1. Brownian Motion and Brownian Bridge
 2. Geometric Brownian Motion (Euler-Maruyama vs. exact solution)
@@ -152,3 +152,4 @@ Future simulations may include:
 
 ```bash
 pip install numpy matplotlib
+pip installl numpy
